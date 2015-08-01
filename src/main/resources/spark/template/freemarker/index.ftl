@@ -22,11 +22,11 @@
 <div id='map'></div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-var map = L.mapbox.map('map', 'mapbox.streets')
-    .setView([40, -74.50], 9);
+var map = L.mapbox.map('map', 'mapbox.outdoors')
+    .setView([-41.2749311,174.7790948], 9);
 </script>
 
-    
+
   </div>
 </div>
 
