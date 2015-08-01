@@ -94,7 +94,7 @@
 // - The file must either be on the same domain as the page that requests it,
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
-omnivore.csv('coords.csv')
+omnivore.csv('coords-small.csv')
     .on('ready', function(layer) {
         // An example of customizing marker styles based on an attribute.
         // In this case, the data, a CSV file, has a column called 'state'
@@ -112,8 +112,22 @@ omnivore.csv('coords.csv')
             } else {
                 marker.setIcon(L.mapbox.marker.icon({}));
             }
+            var mvmt = "Unknown";
+            if (marker.toGeoJSON().properties['MVMT']charAt(0) === 'G') {
+              mvmt = "Turning Versus Same Direction"
+            } 
+            else if (marker.toGeoJSON().properties['MVMT']charAt(0) === 'B') {
+              mvmt = "Head On"
+            } 
+            else if (marker.toGeoJSON().properties['MVMT']charAt(0) === 'X') {
+              mvmt = "Rear End"
+            } 
+
+
             // Bind a popup to each icon based on the same properties
-            marker.bindPopup(marker.toGeoJSON().properties['CRASH ROAD'] + ', <br>' +
+            marker.bindPopup(
+                "<b>" + mvmt + "</b><br>"
+                marker.toGeoJSON().properties['CRASH ROAD'] + ', <br>' +
                 marker.toGeoJSON().properties.LIGHT);
         });
     })
