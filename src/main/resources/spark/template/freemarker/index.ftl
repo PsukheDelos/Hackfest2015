@@ -96,6 +96,8 @@
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
                           if (new Date(feature.properties['CRASH DATE']).getMonth()===1){
+                              console.log(feature);
+                              console.log(new Date(feature.properties['CRASH DATE']).getMonth());
                               geoJson.addData(feature);
                           }
                           
