@@ -63,7 +63,7 @@
       .setView([-41.2749311,174.7790948], 11);
   console.error("Hey");
       // L.marker is a low-level marker constructor in Leaflet.
-  omnivore.csv('wellington-crash-all.csv').addTo(map);
+  omnivore.csv('coords.csv').addTo(map);
   </script>
 
 
