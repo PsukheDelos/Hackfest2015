@@ -84,13 +84,36 @@
         for (var i=1; i<allTextLines.length; i++) {
             var data = allTextLines[i].split(',');
             if (data.length == headers.length) {
-                var tarr = [];
-                for (var j=0; j<headers.length; j++) {
+                // var tarr = [];
+                L.mapbox.featureLayer({
+    // this feature is in the GeoJSON format: see geojson.org
+    // for the full specification
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        // coordinates here are in longitude, latitude order because
+        // x, y is the standard for GeoJSON and many formats
+        coordinates: [
+          data[29],
+          data[30] 
+        ]
+    },
+    properties: {
+        title: data[1],
+        description: data[5],
+        // one can customize markers by adding simplestyle properties
+        // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+        'marker-size': 'large',
+        'marker-color': '#BE9A6B',
+        'marker-symbol': 'cafe'
+    }
+}).addTo(map);
+                // for (var j=0; j<headers.length; j++) {
 
 
 
                     //tarr.push(headers[j]+":"+data[j]);
-                }
+                // }
             }
     }
 }
