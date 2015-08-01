@@ -65,13 +65,7 @@
         <div class="row">
           <div id="map">
               <img class="img-responsive" src="images/placeholder-map.jpg" alt="" width="100%">
-              <script>
-                L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-                var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
-                map.scrollWheelZoom.disable();
-                    // L.marker is a low-level marker constructor in Leaflet.
-                omnivore.csv('coords.csv').addTo(map);
-              </script>
+
           </div>
         </div>
       </div>
