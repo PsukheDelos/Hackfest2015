@@ -123,12 +123,37 @@ omnivore.csv('coords-small.csv')
               mvmt = "Rear End"
             } 
 
+            var light = "Unknown";
+            if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='B'){
+              light = "Bright Sun";
+            }
+            else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='O'){
+              light = "Overcast";
+            }
+            else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='T'){
+              light = "Twilight";
+            }
+            else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='D'){
+              light = "Dark";
+            }
+
+            if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='O'){
+              light = light + " / Street Lights On";
+            }
+            else if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='F'){
+              light = light + " / Street Lights Off";
+            }
+            else if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='N'){
+              light = light + " / No Street Lights Present";
+            }
+
 
             // Bind a popup to each icon based on the same properties
             marker.bindPopup(
                 '<b>' + mvmt + '</b><br>' + 
                 '<b>Road: </b>' + marker.toGeoJSON().properties['CRASH ROAD'].capitalize(true) + '<br>' +
-                marker.toGeoJSON().properties.LIGHT);
+                '<b>Light: </b>' + light
+            );
         });
     })
     .addTo(map);
