@@ -232,7 +232,7 @@ omnivore.csv('coords.csv')
                   //     });
                   // }
                   // }).error(function() {});
-
+                  var myLayer = L.mapbox.featureLayer().addTo(map);
                   if (navigator.geolocation) {
                           map.locate();
                   }
