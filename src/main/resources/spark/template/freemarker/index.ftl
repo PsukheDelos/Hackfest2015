@@ -67,6 +67,20 @@
           <div id="map">
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
+                  
+                $.get('coords.csv', function(data) {
+                    var csvString = data;
+                  });
+
+                  csv2geojson.csv2geojson(csvString, {
+                      latfield: 'latitude',
+                      lonfield: 'longitude',
+                      delimiter: ','
+                  }, function(err, data) 
+                      var gJson = data;
+                  });
+
+
                   L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();

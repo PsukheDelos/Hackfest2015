@@ -15,6 +15,7 @@
 <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.min.js"></script>
+<script src="https://raw.githubusercontent.com/tmcw/csv2geojson/gh-pages/csv2geojson.js"></script>
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
