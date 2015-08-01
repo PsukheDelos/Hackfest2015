@@ -63,7 +63,7 @@
     <section id="map-section" class="">
       <div class="container">
         <div class="row">
-          <div id="map" class="col-md-12" height="100px">
+          <div id="map" class="col-md-12">
               <script>
                 L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
                 var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
