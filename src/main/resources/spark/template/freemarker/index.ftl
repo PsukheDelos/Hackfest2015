@@ -61,13 +61,15 @@
   
   <!-- Map Section -->
     <section id="map-section" class="">
-      <div class="container">
-        <div class="row">
+      <!-- <div class="container"> -->
+        <!-- <div class="row"> -->
           <!-- <div id="map"> -->
+          <div>
               <img class="img-responsive" src="images/placeholder-map.jpg" alt="">
+          </div>
           <!-- </div> -->
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
 
     </section>
 
