@@ -42,9 +42,9 @@ for row in wellingtonData:
     geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": str(coords)},'properties':properties}
     geoObjects.append(geojson_obj)
 
-geoFileInput = {'type':'FeatureCollection', 'features':geoObjects}
+geoFileInput = {"type":"FeatureCollection", "features":geoObjects}
 geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', '2015.txt')), 'w+')
-geoFile.write(str(geoFileInput))
+geoFile.write(json.dumps(geoFileInput))
 geoFile.close()
 
 
