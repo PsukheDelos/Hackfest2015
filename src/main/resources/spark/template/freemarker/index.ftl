@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- <#include "header.ftl"> -->
+  <#include "header.ftl">
 </head>
 
 <body>
 
-  <!-- <#include "nav.ftl"> -->
+  <#include "nav.ftl">
 
 <div class="jumbotron text-center">
   <div class="container">
@@ -113,16 +113,6 @@
   <!-- Map Section -->
     <section id="map">
     <div class="row">
-      <div id='map'></div>
-  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-  <script>
-  L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-  var map = L.mapbox.map('map', 'mapbox.outdoors')
-      .setView([-41.2749311,174.7790948], 9);
-
-      // L.marker is a low-level marker constructor in Leaflet.
-  omnivore.csv('/coords.csv').addTo(map);
-  </script>
       <img class="img-responsive" src="images/placeholder.jpg" alt="">
     </div>
     </section>
@@ -155,6 +145,17 @@
     <script src="js/bootstrap.min.js"></script>
   
 </body>
+
+  <div id='map'></div>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+  <script>
+  L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
+  var map = L.mapbox.map('map', 'mapbox.outdoors')
+      .setView([-41.2749311,174.7790948], 9);
+
+      // L.marker is a low-level marker constructor in Leaflet.
+  omnivore.csv('/coords.csv').addTo(map);
+  </script>
 
 
   </div>
