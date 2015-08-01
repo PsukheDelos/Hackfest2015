@@ -113,13 +113,13 @@ omnivore.csv('coords-small.csv')
                 marker.setIcon(L.mapbox.marker.icon({}));
             }
             var mvmt = "Unknown";
-            if (marker.toGeoJSON().properties['MVMT']charAt(0) === 'G') {
+            if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'G') {
               mvmt = "Turning Versus Same Direction"
             } 
-            else if (marker.toGeoJSON().properties['MVMT']charAt(0) === 'B') {
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'B') {
               mvmt = "Head On"
             } 
-            else if (marker.toGeoJSON().properties['MVMT']charAt(0) === 'X') {
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'X') {
               mvmt = "Rear End"
             } 
 
