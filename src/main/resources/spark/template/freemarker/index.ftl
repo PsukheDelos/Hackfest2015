@@ -102,7 +102,7 @@ omnivore.csv('coords.csv')
         // values, so adjust to fit.
         this.eachLayer(function(marker) {
 
-            var injuries = "None";
+            var injuries = "No Injuries";
 
             marker.setIcon(L.mapbox.marker.icon({
                 'marker-color': '#3366FF',
@@ -212,7 +212,7 @@ omnivore.csv('coords.csv')
             // Bind a popup to each icon based on the same properties
             marker.bindPopup(
                 '<b>' + mvmt + '</b><br>' + 
-                '<b>Injuries: </b>' + injuries + 
+                '<b>[' + injuries + ']</b><br>' + 
                 '<b>Road: </b>' + marker.toGeoJSON().properties['CRASH ROAD'].capitalize(true) + '<br>' +
                 '<b>Light: </b>' + light
             );
