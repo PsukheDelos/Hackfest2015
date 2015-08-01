@@ -68,63 +68,9 @@
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
                   
-                  mapboxgl.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json',
-  center: [37.8, -96],
-  zoom: 3
-});
-
-map.on('style.load', function() {
-  map.addSource("markers", {
-    "type": "geojson",
-    "data": {
-      "type": "FeatureCollection",
-      "features": [{
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-77.03238901390978, 38.913188059745586]
-        },
-        "properties": {
-          "title": "Mapbox DC",
-          "marker-symbol": "monument"
-        }
-      }, {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.414, 37.776]
-        },
-        "properties": {
-          "title": "Mapbox SF",
-          "marker-symbol": "harbor"
-        }
-      }]
-    }
-  });
-
-  map.addLayer({
-    "id": "markers",
-    "type": "symbol",
-    "source": "markers",
-    "layout": {
-      "icon-image": "{marker-symbol}-12",
-      "text-field": "{title}",
-      "text-font": "Open Sans Semibold, Arial Unicode MS Bold",
-      "text-offset": [0, 0.6],
-      "text-anchor": "top"
-    },
-    "paint": {
-      "text-size": 12
-    }
-  });
-});
-                  
-                // $.get('coords.csv', function(data) {
-                //     var csvString = data;
-                //   });
+                $.get('coords.csv', function(data) {
+                    var csvString = data;
+                  });
 
 
 
@@ -137,22 +83,22 @@ map.on('style.load', function() {
                   // });
 
 
-                  // L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-                  // var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
-                  // map.scrollWheelZoom.disable();
+                  L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
+                  var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
+                  map.scrollWheelZoom.disable();
 
-                  // var district_boundary = new L.geoJson();
-                  // district_boundary.addTo(map);
+                  var geoJson = new L.geoJson();
+                  geoJson.addTo(map);
 
-                  // $.ajax({
-                  // dataType: "json",
-                  // url: "geojson.txt",
-                  // success: function(data) {
-                  //     $(data.features).each(function(key, data) {
-                  //         district_boundary.addData(data);
-                  //     });
-                  // }
-                  // }).error(function() {});
+                  $.ajax({
+                  dataType: "json",
+                  url: "geojson.txt",
+                  success: function(data) {
+                      $(data.features).each(function(key, data) {
+                          geoJson.addData(data);
+                      });
+                  }
+                  }).error(function() {});
 
 
                   // L.marker is a low-level marker constructor in Leaflet.
