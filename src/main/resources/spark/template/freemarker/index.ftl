@@ -63,10 +63,9 @@
     <section id="map-section" class="">
       <div class="container">
         <div class="row">
-          <div id="map">
-              <img class="img-responsive" src="images/placeholder-map.jpg" alt="" width="100%">
-
-          </div>
+          <!-- <div id="map"> -->
+              <img class="img-responsive" src="images/placeholder-map.jpg" alt="">
+          <!-- </div> -->
         </div>
       </div>
 
