@@ -240,7 +240,6 @@ omnivore.csv('coords.csv')
                   // Once we've got a position, zoom and center the map
                   // on it, and add a single marker.
                   map.on('locationfound', function(e) {
-                      map.fitBounds(e.bounds);
 
                       myLayer.setGeoJSON({
                           type: 'Feature',
@@ -249,14 +248,11 @@ omnivore.csv('coords.csv')
                               coordinates: [e.latlng.lng, e.latlng.lat]
                           },
                           properties: {
-                              'title': 'Here I am!',
                               'marker-color': '#ff8888',
                               'marker-symbol': 'star'
                           }
                       });
 
-                      // And hide the geolocation button
-                      geolocate.parentNode.removeChild(geolocate);
                   });
 
                   // If the user chooses not to allow their location
