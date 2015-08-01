@@ -325,4 +325,4 @@ form .row:first-child .floating-label-form-group {
     }
 }
 
-#map { width:100%; }
+#map { height: 90%; width:100%; }
