@@ -324,8 +324,8 @@ form .row:first-child .floating-label-form-group {
        opacity: 0;
     }
 }
-#map { 
+/*#map { 
 width: 100%;
 height: 100%;
-}
+}*/
 /*#map { height: 100%; width:100%; overflow: hidden;}*/
