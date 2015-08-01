@@ -27,27 +27,25 @@ for row in rows:
         rowID = rowID +1
         wellingtonData.append(row)
 
-
-
+##
+##{ "type":"FeatureCollection","features":
+##                    [
 
 
 geoObjects = []
 for row in wellingtonData:
     length = len(row)
-    coords = {'lat': row[length-2], 'lng':row[length-1]}
-    properties = ""
+    coords = [row[length-2],row[length-1]]
+    properties = {}
     for i in xrange(0,length-2):
-        if i != 0:
-            properties += ','
-        temp = '"'+str(headers[i])+'": "' + str(row[i])+'"'
-        properties += temp
-    print coords
-    print properties
-    break
+        properties[headers[i]] = row[i]
+    geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": str(coords)},'properties':properties}
+    geoObjects.append(geojson_obj)
 
-os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resource','public','data')))
-geoFile = open('2015.txt', 'w+')
-    
+geoFileInput = {'type':'FeatureCollection', 'features':geoObjects}
+geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', '2015.txt')), 'w+')
+geoFile.write(str(geoFileInput))
+geoFile.close()
 
 
 
