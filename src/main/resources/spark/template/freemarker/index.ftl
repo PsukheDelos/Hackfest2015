@@ -112,17 +112,58 @@ omnivore.csv('coords-small.csv')
             } else {
                 marker.setIcon(L.mapbox.marker.icon({}));
             }
+
+            //Converts movement codes to Movement text
             var mvmt = "Unknown";
-            if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'G') {
-              mvmt = "Turning Versus Same Direction"
+            if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'A') {
+              mvmt = "Overtaking and Lane Change";
             } 
             else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'B') {
-              mvmt = "Head On"
+              mvmt = "Head On";
             } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'X') {
-              mvmt = "Rear End"
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'C') {
+              mvmt = "Lost Control or Off Road (Straight Roads)";
+            }
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'D') {
+              mvmt = "Cornering";
+            }
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'E') {
+              mvmt = "Collision with Obstruction";
             } 
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'F') {
+              mvmt = "Rear End";
+            }
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'G') {
+              mvmt = "Turning Versus Same Direction";
+            }
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'H') {
+              mvmt = "Crossing (No Turns)";
+            }  
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'J') {
+              mvmt = "Crossing (Vehicle Turning)";
+            } 
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'K') {
+              mvmt = "Merging";
+            } 
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'L') {
+              mvmt = "Right Against Turn";
+            } 
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'M') {
+              mvmt = "Manoeuvring";
+            } 
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'N') {
+              mvmt = "Pedestrians Crossing Road";
+            }
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'P') {
+              mvmt = "Pedestrians Other";
+            } 
+            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'Q') {
+              mvmt = "Miscellaneous";
+            }  
 
+
+
+            //Converts light codes to Text 
             var light = "Unknown";
             if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='B'){
               light = "Bright Sun";
@@ -136,7 +177,7 @@ omnivore.csv('coords-small.csv')
             else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='D'){
               light = "Dark";
             }
-
+            
             if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='O'){
               light = light + " / Street Lights On";
             }
