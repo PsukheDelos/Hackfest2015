@@ -95,10 +95,13 @@
                   url: "data/geojson.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
-                        console.log("feature checked: " + feature);
-                          if (new Date(feature.properties['CRASH DATE']).getMonth()===1){
-                              console.log(feature);
-                              console.log(new Date(feature.properties['CRASH DATE']).toString());
+                          var parts = feature.properties['CRASH DATE'].split("/");
+                          var dt = new Date(parseInt(parts[2], 10),
+                                            parseInt(parts[1], 10) - 1,
+                                            parseInt(parts[0], 10));                        
+                          if (dt.getMonth()===1){
+                              console.log(dt);
+                              console.log(dt.getMonth());
                               geoJson.addData(feature);
                           }
                           
