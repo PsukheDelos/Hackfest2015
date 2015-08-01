@@ -324,5 +324,14 @@ form .row:first-child .floating-label-form-group {
        opacity: 0;
     }
 }
+#map { 
+width: 940px;
+height: 500 px
+}
+/*#map { height: 100%; width:100%; overflow: hidden;}*/
 
-#map { height: 100%; width:100%; overflow: hidden;}
+#map1 img {
+ max-width: none;
+ min-width: 0px;
+ height: auto;
+}
