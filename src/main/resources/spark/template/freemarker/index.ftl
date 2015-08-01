@@ -126,7 +126,7 @@ omnivore.csv('coords-small.csv')
 
             // Bind a popup to each icon based on the same properties
             marker.bindPopup(
-                "<b>" + mvmt + "</b><br>"
+                '<b>' + mvmt + '</b><br>' + 
                 marker.toGeoJSON().properties['CRASH ROAD'] + ', <br>' +
                 marker.toGeoJSON().properties.LIGHT);
         });
