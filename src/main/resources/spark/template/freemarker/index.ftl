@@ -1,24 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Crash Data</title>
-  
-  <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="stylesheet.css" rel="stylesheet">
-  
+  <#include "header.ftl">
 </head>
 
-<body>
+<body> 
   
   <!-- Navigation Bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -106,7 +92,7 @@
   
   <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-  
-</body>
 
+
+</body>
 </html>
