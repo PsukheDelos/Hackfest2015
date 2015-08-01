@@ -1,7 +1,5 @@
 
 
-import datetime
-import pymongo as pmg
 import json
 import os
 import sys
@@ -15,36 +13,39 @@ rows = []
 with open('data\crash-data-2015.csv','r') as inputFile:
     for line in inputFile:
         if headers == []:
-            headers = line.split(',')
+            headers = line.strip('\n').split(',')
             headers.insert(0,'_id')
         else:
-            rows.append(line)
+            rows.append(line.strip('\n').split(','))
 inputFile.close()
 wellingtonData = []
 print "Loaded"
 print len(rows)
 for row in rows:
     if 'Wellington City' in row:
-        string = '"' + str(rowID) + '",'+row
+        row.insert(0,rowID)
         rowID = rowID +1
-        wellingtonData.append(string)
+        wellingtonData.append(row)
 
-csvdata = csv.DictReader(wellingtonData, headers, delimiter=',')
+##
+##{ "type":"FeatureCollection","features":
+##                    [
 
-client= pmg.MongoClient()
-try:
-    db = client['CrashData']
-    collection = db['2015']
-    for row in csvdata:
-        del row[None]
-        collection.insert_one(row)
-    print client.database_names()
 
-    
-except Exception as e:
-    client.drop_database('CrashData')
-    print e
-finally:
-    client.close()
-        
-    
+geoObjects = []
+for row in wellingtonData:
+    length = len(row)
+    coords = [row[length-2],row[length-1]]
+    properties = {}
+    for i in xrange(0,length-2):
+        properties[headers[i]] = row[i]
+    geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": str(coords)},'properties':properties}
+    geoObjects.append(geojson_obj)
+
+geoFileInput = {'type':'FeatureCollection', 'features':geoObjects}
+geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', '2015.txt')), 'w+')
+geoFile.write(str(geoFileInput))
+geoFile.close()
+
+
+
