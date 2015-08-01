@@ -326,6 +326,6 @@ form .row:first-child .floating-label-form-group {
 }
 #map { 
 width: 100%;
-height: 500px;
+height: 100%;
 }
 /*#map { height: 100%; width:100%; overflow: hidden;}*/
