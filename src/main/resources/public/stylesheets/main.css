@@ -425,6 +425,7 @@ footer .footer-below {
 .leaflet-marker-shadow {
    -webkit-animation: fadeInOut 6s;
    animation: fadeInOut 6s;
+   opacity: 0;
 }
 
 @keyframes fadeInOut {

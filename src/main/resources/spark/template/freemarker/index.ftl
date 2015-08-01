@@ -61,6 +61,7 @@
   
   <!-- Map Section -->
     <section id="map">
+    <div class="row">
       <script>
         L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
         var map = L.mapbox.map('map', 'mapbox.outdoors')
@@ -72,6 +73,7 @@
         map.eventHandlers[3].remove();
     });
       </script>
+          </div>
     </section>
 
     <!-- About Section -->
