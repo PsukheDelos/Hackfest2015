@@ -108,136 +108,138 @@ omnivore.csv('coords.csv')
       
 
 
-        this.eachLayer(function(marker) {
+    //     this.eachLayer(function(marker) {
 
-            var injuries = "No Injuries";
+    //         var injuries = "No Injuries";
 
-            marker.setIcon(L.mapbox.marker.icon({
-                'marker-color': '#3366FF',
-                'marker-size': 'small'
-            }));
+    //         marker.setIcon(L.mapbox.marker.icon({
+    //             'marker-color': '#3366FF',
+    //             'marker-size': 'small'
+    //         }));
             
-            if (parseInt(marker.toGeoJSON().properties['CRASH MIN CNT']) > 0) {
-                marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#FFFF00',
-                    'marker-size': 'medium'
-                }));
-                injuries = 'Minor Injuries'
-            } 
-            if (parseInt(marker.toGeoJSON().properties['CRASH SEV CNT']) > 0) {
-                marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#FF3300',
-                    'marker-size': 'large'
-                }));
-                injuries = 'Serious Injuries'
-            } 
-            if (parseInt(marker.toGeoJSON().properties['CRASH FATAL CNT']) > 0) {
-                marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#000000',
-                    'marker-size': 'large'
-                }));
-                injuries = 'Fatal Injuries'
-            } 
+    //         if (parseInt(marker.toGeoJSON().properties['CRASH MIN CNT']) > 0) {
+    //             marker.setIcon(L.mapbox.marker.icon({
+    //                 'marker-color': '#FFFF00',
+    //                 'marker-size': 'medium'
+    //             }));
+    //             injuries = 'Minor Injuries'
+    //         } 
+    //         if (parseInt(marker.toGeoJSON().properties['CRASH SEV CNT']) > 0) {
+    //             marker.setIcon(L.mapbox.marker.icon({
+    //                 'marker-color': '#FF3300',
+    //                 'marker-size': 'large'
+    //             }));
+    //             injuries = 'Serious Injuries'
+    //         } 
+    //         if (parseInt(marker.toGeoJSON().properties['CRASH FATAL CNT']) > 0) {
+    //             marker.setIcon(L.mapbox.marker.icon({
+    //                 'marker-color': '#000000',
+    //                 'marker-size': 'large'
+    //             }));
+    //             injuries = 'Fatal Injuries'
+    //         } 
 
 
 
-            //Converts movement codes to Movement text
-            var mvmt = "Unknown";
-            if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'A') {
-              mvmt = "Overtaking and Lane Change";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'B') {
-              mvmt = "Head On";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'C') {
-              mvmt = "Lost Control or Off Road (Straight Roads)";
-            }
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'D') {
-              mvmt = "Cornering";
-            }
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'E') {
-              mvmt = "Collision with Obstruction";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'F') {
-              mvmt = "Rear End";
-            }
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'G') {
-              mvmt = "Turning Versus Same Direction";
-            }
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'H') {
-              mvmt = "Crossing (No Turns)";
-            }  
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'J') {
-              mvmt = "Crossing (Vehicle Turning)";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'K') {
-              mvmt = "Merging";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'L') {
-              mvmt = "Right Against Turn";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'M') {
-              mvmt = "Manoeuvring";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'N') {
-              mvmt = "Pedestrians Crossing Road";
-            }
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'P') {
-              mvmt = "Pedestrians Other";
-            } 
-            else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'Q') {
-              mvmt = "Miscellaneous";
-            }
+    //         //Converts movement codes to Movement text
+    //         var mvmt = "Unknown";
+    //         if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'A') {
+    //           mvmt = "Overtaking and Lane Change";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'B') {
+    //           mvmt = "Head On";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'C') {
+    //           mvmt = "Lost Control or Off Road (Straight Roads)";
+    //         }
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'D') {
+    //           mvmt = "Cornering";
+    //         }
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'E') {
+    //           mvmt = "Collision with Obstruction";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'F') {
+    //           mvmt = "Rear End";
+    //         }
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'G') {
+    //           mvmt = "Turning Versus Same Direction";
+    //         }
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'H') {
+    //           mvmt = "Crossing (No Turns)";
+    //         }  
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'J') {
+    //           mvmt = "Crossing (Vehicle Turning)";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'K') {
+    //           mvmt = "Merging";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'L') {
+    //           mvmt = "Right Against Turn";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'M') {
+    //           mvmt = "Manoeuvring";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'N') {
+    //           mvmt = "Pedestrians Crossing Road";
+    //         }
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'P') {
+    //           mvmt = "Pedestrians Other";
+    //         } 
+    //         else if (marker.toGeoJSON().properties['MVMT'].charAt(0) === 'Q') {
+    //           mvmt = "Miscellaneous";
+    //         }
 
 
 
-            //Converts light codes to Text 
-            var light = "Unknown";
-            if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='B'){
-              light = "Bright Sun";
-            }
-            else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='O'){
-              light = "Overcast";
-            }
-            else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='T'){
-              light = "Twilight";
-            }
-            else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='D'){
-              light = "Dark";
-            }
+    //         //Converts light codes to Text 
+    //         var light = "Unknown";
+    //         if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='B'){
+    //           light = "Bright Sun";
+    //         }
+    //         else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='O'){
+    //           light = "Overcast";
+    //         }
+    //         else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='T'){
+    //           light = "Twilight";
+    //         }
+    //         else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='D'){
+    //           light = "Dark";
+    //         }
 
-            if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='O'){
-              light = light + " / Street Lights On";
-            }
-            else if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='F'){
-              light = light + " / Street Lights Off";
-            }
-            else if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='N'){
-              light = light + " / No Street Lights Present";
-            }
+    //         if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='O'){
+    //           light = light + " / Street Lights On";
+    //         }
+    //         else if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='F'){
+    //           light = light + " / Street Lights Off";
+    //         }
+    //         else if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='N'){
+    //           light = light + " / No Street Lights Present";
+    //         }
 
 
-            // Bind a popup to each icon based on the same properties
-            marker.bindPopup(
-                '<b>' + mvmt + '</b><br>' + 
-                '<b>[' + injuries + ']</b><br>' + 
-                '<b>Road: </b>' + marker.toGeoJSON().properties['CRASH ROAD'].capitalize(true) + '<br>' +
-                '<b>Light: </b>' + light
-            );
-        });
-    })
-    .addTo(map);
+    //         // Bind a popup to each icon based on the same properties
+    //         marker.bindPopup(
+    //             '<b>' + mvmt + '</b><br>' + 
+    //             '<b>[' + injuries + ']</b><br>' + 
+    //             '<b>Road: </b>' + marker.toGeoJSON().properties['CRASH ROAD'].capitalize(true) + '<br>' +
+    //             '<b>Light: </b>' + light
+    //         );
+    //     });
+    // })
+    // .addTo(map);
 
                   var geoJson = new L.geoJson();
-                  // geoJson.addTo(map);
+                  geoJson.addTo(map);
 
                   $.ajax({
                   dataType: "json",
                   url: "data/geojson.txt",
                   success: function(data) {
-                      $(data.features).each(function(key, data) {
-                          console.log(data)
-                          geoJson.addData(data);
+                      $(data.features).each(function(key, feature) {
+                          if (new Date(feature.properties['CRASH DATE']).getMonth()===1){
+                              geoJson.addData(feature);
+                          }
+                          
                       });
                   }
                   }).error(function() {});
