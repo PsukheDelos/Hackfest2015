@@ -72,6 +72,8 @@
                     var csvString = data;
                   });
 
+
+
                   // csv2geojson.csv2geojson(csvString, {
                   //     latfield: 'latitude',
                   //     lonfield: 'longitude',
@@ -84,8 +86,21 @@
                   L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
+
+                  var district_boundary = new L.geoJson();
+                  district_boundary.addTo(map);
+
+                  $.ajax({
+                  dataType: "json",
+                  url: "geojson.txt",
+                  success: function(data) {
+                      $(data.features).each(function(key, data) {
+                          district_boundary.addData(data);
+                      });
+                  }
+                  }).error(function() {});
                   // L.marker is a low-level marker constructor in Leaflet.
-                  omnivore.csv('coords.csv').addTo(map);
+                  // omnivore.csv('coords.csv').addTo(map);
                 </script>
           </div>
           <!-- </div> -->
