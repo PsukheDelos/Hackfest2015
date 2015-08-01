@@ -87,18 +87,50 @@
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
 
-                  var geoJson = new L.geoJson();
-                  geoJson.addTo(map);
+                  // Omnivore will AJAX-request this file behind the scenes and parse it:
+// note that there are considerations:
+// - The CSV file must contain latitude and longitude values, in column
+//   named roughly latitude and longitude
+// - The file must either be on the same domain as the page that requests it,
+//   or both the server it is requested from and the user's browser must
+//   support CORS.
+omnivore.csv('coords.csv')
+    .on('ready', function(layer) {
+        // An example of customizing marker styles based on an attribute.
+        // In this case, the data, a CSV file, has a column called 'state'
+        // with values referring to states. Your data might have different
+        // values, so adjust to fit.
+        this.eachLayer(function(marker) {
+            if (marker.toGeoJSON().properties."JUNC TYPE" === 'X') {
+                // The argument to L.mapbox.marker.icon is based on the
+                // simplestyle-spec: see that specification for a full
+                // description of options.
+                marker.setIcon(L.mapbox.marker.icon({
+                    'marker-color': '#ff8888',
+                    'marker-size': 'large'
+                }));
+            } else {
+                marker.setIcon(L.mapbox.marker.icon({}));
+            }
+            // Bind a popup to each icon based on the same properties
+            marker.bindPopup(marker.toGeoJSON().properties."JUNC TYPE" + ', ' +
+                marker.toGeoJSON().properties."JUNC TYPE");
+        });
+    })
+    .addTo(map);
 
-                  $.ajax({
-                  dataType: "json",
-                  url: "geojson.txt",
-                  success: function(data) {
-                      $(data.features).each(function(key, data) {
-                          geoJson.addData(data);
-                      });
-                  }
-                  }).error(function() {});
+                  // var geoJson = new L.geoJson();
+                  // geoJson.addTo(map);
+
+                  // $.ajax({
+                  // dataType: "json",
+                  // url: "geojson.txt",
+                  // success: function(data) {
+                  //     $(data.features).each(function(key, data) {
+                  //         geoJson.addData(data);
+                  //     });
+                  // }
+                  // }).error(function() {});
 
 
                   // L.marker is a low-level marker constructor in Leaflet.
