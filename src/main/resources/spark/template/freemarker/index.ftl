@@ -61,11 +61,11 @@
   
   <!-- Map Section -->
     <section id="map" class="">
-      <div id='map-div'></div>
+      <div id='map'></div>
   <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
   <script>
   L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-  var map = L.mapbox.map('map-div', 'mapbox.outdoors')
+  var map = L.mapbox.map('map', 'mapbox.outdoors')
       .setView([-41.2749311,174.7790948], 11);
       // L.marker is a low-level marker constructor in Leaflet.
   omnivore.csv('coords.csv').addTo(map);
