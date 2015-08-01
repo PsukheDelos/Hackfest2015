@@ -362,5 +362,5 @@ form .row:first-child .floating-label-form-group {
        opacity: 0;
     }
 }
-#map { width: 100%;}
+#map { width: 100%; position:absolute;}
 /*#map { height: 100%; width:100%; overflow: hidden;}*/
