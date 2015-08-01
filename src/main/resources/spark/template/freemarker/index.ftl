@@ -61,7 +61,7 @@
   
   <!-- Map Section -->
     <section id="map" class="">
-      <img class="img-responsive" src="images/placeholder-map.jpg" alt="">
+    <img class="img-responsive" src="images/placeholder-map.jpg" alt="">
     </section>
 
     <div class="white-break"></div>
@@ -115,6 +115,20 @@
     </section>
 
     <div class="white-break"></div>
+
+  <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+  
+  <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
   
 </body>
 </html>
