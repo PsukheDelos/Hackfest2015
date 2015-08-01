@@ -61,16 +61,7 @@
   
   <!-- Map Section -->
     <section id="map" class="">
-      <div id='map'></div>
-  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-  <script>
-  L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-  var map = L.mapbox.map('map', 'mapbox.outdoors')
-      .setView([-41.2749311,174.7790948], 11);
-      // L.marker is a low-level marker constructor in Leaflet.
-  omnivore.csv('coords.csv').addTo(map);
-  </script>
-    <!-- <img class="img-responsive" src="images/placeholder-map.jpg" alt=""> -->
+    <img class="img-responsive" src="images/placeholder-map.jpg" alt="">
     </section>
 
     <div class="white-break"></div>
@@ -124,6 +115,20 @@
     </section>
 
     <div class="white-break"></div>
+
+  <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+  
+  <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
   
 </body>
 </html>
