@@ -62,7 +62,7 @@
       .setView([-41.2749311,174.7790948], 9);
 
       // L.marker is a low-level marker constructor in Leaflet.
-L.marker([-41.2749311,174.7790948], {
+L.marker([41 18 06.348914 S, 174 46 46.666261 E], {
     icon: L.mapbox.marker.icon({
         'marker-size': 'large',
         'marker-symbol': 'bus',
