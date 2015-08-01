@@ -94,7 +94,7 @@
 // - The file must either be on the same domain as the page that requests it,
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
-omnivore.csv('coords-small.csv')
+omnivore.csv('coords.csv')
     .on('ready', function(layer) {
         // An example of customizing marker styles based on an attribute.
         // In this case, the data, a CSV file, has a column called 'state'
@@ -177,7 +177,7 @@ omnivore.csv('coords-small.csv')
             else if(marker.toGeoJSON().properties['LIGHT'].charAt(0)==='D'){
               light = "Dark";
             }
-            
+
             if(marker.toGeoJSON().properties['LIGHT'].charAt(1)==='O'){
               light = light + " / Street Lights On";
             }
