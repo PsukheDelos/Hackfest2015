@@ -233,6 +233,37 @@ omnivore.csv('coords.csv')
                   // }
                   // }).error(function() {});
 
+                  if (navigator.geolocation) {
+                          map.locate();
+                  }
+                  //This is for my location
+                  // Once we've got a position, zoom and center the map
+                  // on it, and add a single marker.
+                  map.on('locationfound', function(e) {
+                      map.fitBounds(e.bounds);
+
+                      myLayer.setGeoJSON({
+                          type: 'Feature',
+                          geometry: {
+                              type: 'Point',
+                              coordinates: [e.latlng.lng, e.latlng.lat]
+                          },
+                          properties: {
+                              'title': 'Here I am!',
+                              'marker-color': '#ff8888',
+                              'marker-symbol': 'star'
+                          }
+                      });
+
+                      // And hide the geolocation button
+                      geolocate.parentNode.removeChild(geolocate);
+                  });
+
+                  // If the user chooses not to allow their location
+                  // to be shared, display an error message.
+                  map.on('locationerror', function() {
+                      geolocate.innerHTML = 'Position could not be found';
+                  });
 
                   // L.marker is a low-level marker constructor in Leaflet.
                   // omnivore.csv('coords.csv').addTo(map);
