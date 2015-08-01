@@ -100,6 +100,11 @@ omnivore.csv('data/coords.csv')
         // In this case, the data, a CSV file, has a column called 'state'
         // with values referring to states. Your data might have different
         // values, so adjust to fit.
+
+        var filter_json  =  $.grep(marker.toGeoJSON(), function( n, i ) {
+            return (new Date(n['CRASH DATE']).getMonth())===1;
+        });
+
         this.eachLayer(function(marker) {
 
             var injuries = "No Injuries";
@@ -257,9 +262,9 @@ omnivore.csv('data/coords.csv')
 
                   // If the user chooses not to allow their location
                   // to be shared, display an error message.
-                  map.on('locationerror', function() {
-                      geolocate.innerHTML = 'Position could not be found';
-                  });
+                  // map.on('locationerror', function() {
+                  //     geolocate.innerHTML = 'Position could not be found';
+                  // });
 
                   // L.marker is a low-level marker constructor in Leaflet.
                   // omnivore.csv('coords.csv').addTo(map);
