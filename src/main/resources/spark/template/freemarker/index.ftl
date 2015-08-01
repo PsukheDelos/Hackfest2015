@@ -127,7 +127,7 @@ omnivore.csv('coords-small.csv')
             // Bind a popup to each icon based on the same properties
             marker.bindPopup(
                 '<b>' + mvmt + '</b><br>' + 
-                marker.toGeoJSON().properties['CRASH ROAD'] + ', <br>' +
+                '<b>Road: </b>' + marker.toGeoJSON().properties['CRASH ROAD'].capitalize(true) + '<br>' +
                 marker.toGeoJSON().properties.LIGHT);
         });
     })
@@ -149,6 +149,9 @@ omnivore.csv('coords-small.csv')
 
                   // L.marker is a low-level marker constructor in Leaflet.
                   // omnivore.csv('coords.csv').addTo(map);
+                  //returns Strings with first letter of each word capitalised
+                  String.prototype.capitalize = function(lower) { return (lower ? this.toLowerCase() : this).replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+};
                 </script>
           </div>
 
