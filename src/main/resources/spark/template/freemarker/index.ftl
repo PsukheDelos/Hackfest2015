@@ -102,6 +102,8 @@ omnivore.csv('coords.csv')
         // values, so adjust to fit.
         this.eachLayer(function(marker) {
 
+            var injuries = "None";
+
             marker.setIcon(L.mapbox.marker.icon({
                 'marker-color': '#3366FF',
                 'marker-size': 'small'
@@ -112,18 +114,21 @@ omnivore.csv('coords.csv')
                     'marker-color': '#FFFF00',
                     'marker-size': 'medium'
                 }));
+                injuries = 'Minor Injuries'
             } 
             if (parseInt(marker.toGeoJSON().properties['CRASH SEV CNT']) > 0) {
                 marker.setIcon(L.mapbox.marker.icon({
                     'marker-color': '#FF3300',
                     'marker-size': 'large'
                 }));
+                injuries = 'Serious Injuries'
             } 
             if (parseInt(marker.toGeoJSON().properties['CRASH FATAL CNT']) > 0) {
                 marker.setIcon(L.mapbox.marker.icon({
                     'marker-color': '#000000',
                     'marker-size': 'large'
                 }));
+                injuries = 'Fatal Injuries'
             } 
 
 
@@ -207,6 +212,7 @@ omnivore.csv('coords.csv')
             // Bind a popup to each icon based on the same properties
             marker.bindPopup(
                 '<b>' + mvmt + '</b><br>' + 
+                '<b>Injuries: </b>' + injuries + 
                 '<b>Road: </b>' + marker.toGeoJSON().properties['CRASH ROAD'].capitalize(true) + '<br>' +
                 '<b>Light: </b>' + light
             );
