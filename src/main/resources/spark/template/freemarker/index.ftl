@@ -101,7 +101,7 @@ omnivore.csv('coords.csv')
         // with values referring to states. Your data might have different
         // values, so adjust to fit.
         this.eachLayer(function(marker) {
-            if (marker.toGeoJSON().properties.LIGHT === 'O') {
+            if (marker.toGeoJSON().properties['JUNC TYPE'] === 'X') {
                 // The argument to L.mapbox.marker.icon is based on the
                 // simplestyle-spec: see that specification for a full
                 // description of options.
