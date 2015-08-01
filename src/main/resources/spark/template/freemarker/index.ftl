@@ -94,30 +94,30 @@
 // - The file must either be on the same domain as the page that requests it,
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
-omnivore.csv('coords.csv')
-    .on('ready', function(layer) {
-        // An example of customizing marker styles based on an attribute.
-        // In this case, the data, a CSV file, has a column called 'state'
-        // with values referring to states. Your data might have different
-        // values, so adjust to fit.
-        this.eachLayer(function(marker) {
-            if (marker.toGeoJSON().properties."JUNC TYPE" === 'X') {
-                // The argument to L.mapbox.marker.icon is based on the
-                // simplestyle-spec: see that specification for a full
-                // description of options.
-                marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#ff8888',
-                    'marker-size': 'large'
-                }));
-            } else {
-                marker.setIcon(L.mapbox.marker.icon({}));
-            }
-            // Bind a popup to each icon based on the same properties
-            marker.bindPopup(marker.toGeoJSON().properties."JUNC TYPE" + ', ' +
-                marker.toGeoJSON().properties."JUNC TYPE");
-        });
-    })
-    .addTo(map);
+// omnivore.csv('coords.csv')
+//     .on('ready', function(layer) {
+//         // An example of customizing marker styles based on an attribute.
+//         // In this case, the data, a CSV file, has a column called 'state'
+//         // with values referring to states. Your data might have different
+//         // values, so adjust to fit.
+//         this.eachLayer(function(marker) {
+//             if (marker.toGeoJSON().properties."JUNC TYPE" === 'X') {
+//                 // The argument to L.mapbox.marker.icon is based on the
+//                 // simplestyle-spec: see that specification for a full
+//                 // description of options.
+//                 marker.setIcon(L.mapbox.marker.icon({
+//                     'marker-color': '#ff8888',
+//                     'marker-size': 'large'
+//                 }));
+//             } else {
+//                 marker.setIcon(L.mapbox.marker.icon({}));
+//             }
+//             // Bind a popup to each icon based on the same properties
+//             marker.bindPopup(marker.toGeoJSON().properties."JUNC TYPE" + ', ' +
+//                 marker.toGeoJSON().properties."JUNC TYPE");
+//         });
+//     })
+//     .addTo(map);
 
                   // var geoJson = new L.geoJson();
                   // geoJson.addTo(map);
@@ -134,18 +134,10 @@ omnivore.csv('coords.csv')
 
 
                   // L.marker is a low-level marker constructor in Leaflet.
-                  // omnivore.csv('coords.csv').addTo(map);
+                  omnivore.csv('coords.csv').addTo(map);
                 </script>
           </div>
-           <div id="slider"></div>
-    <script>
-    //<!--
-      $("#slider").dateRangeSlider();
-    //-->
-    </script>
-          <!-- </div> -->
-        <!-- </div> -->
-      <!-- </div> -->
+
 
     </section>
 
