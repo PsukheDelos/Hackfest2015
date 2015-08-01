@@ -105,6 +105,8 @@ omnivore.csv('coords.csv')
         //     return (new Date(n['CRASH DATE']).getMonth())===1;
         // });
 
+      
+
 
         this.eachLayer(function(marker) {
 
@@ -226,18 +228,21 @@ omnivore.csv('coords.csv')
     })
     .addTo(map);
 
-                  // var geoJson = new L.geoJson();
+                  var geoJson = new L.geoJson();
                   // geoJson.addTo(map);
 
-                  // $.ajax({
-                  // dataType: "json",
-                  // url: "geojson.txt",
-                  // success: function(data) {
-                  //     $(data.features).each(function(key, data) {
-                  //         geoJson.addData(data);
-                  //     });
-                  // }
-                  // }).error(function() {});
+                  $.ajax({
+                  dataType: "json",
+                  url: "data/geojson.txt",
+                  success: function(data) {
+                      $(data.features).each(function(key, data) {
+                          console.log(data)
+                          geoJson.addData(data);
+                      });
+                  }
+                  }).error(function() {});
+
+
 
                   if (navigator.geolocation) {
                           map.locate();
