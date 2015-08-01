@@ -105,6 +105,12 @@
                   // omnivore.csv('coords.csv').addTo(map);
                 </script>
           </div>
+           <div id="slider"></div>
+    <script>
+    //<!--
+      $("#slider").dateRangeSlider();
+    //-->
+    </script>
           <!-- </div> -->
         <!-- </div> -->
       <!-- </div> -->

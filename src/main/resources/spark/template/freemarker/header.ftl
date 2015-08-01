@@ -16,9 +16,13 @@
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.min.js"></script>
 <script src="https://raw.githubusercontent.com/tmcw/csv2geojson/gh-pages/csv2geojson.js"></script>
+    <script src="js/jquery-ui/jquery-ui.js"></script>
+    <script src="js/slider/jQDateRangeSlider-min.js"></script>
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="js/slider/css/iThing.css" type="text/css" />
+
 
 
 <!-- Plugin JavaScript -->
