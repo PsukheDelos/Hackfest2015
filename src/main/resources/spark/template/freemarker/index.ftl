@@ -10,45 +10,61 @@
 
 <div class="jumbotron text-center">
   <div class="container">
-   
-   <!DOCTYPE html>
-<html>
-<head>
-<meta charset=utf-8 />
-<title>Loading markers from CSV</title>
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+    
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
 <style>
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s; /* Firefox < 16 */
+  -ms-animation: fadein 3s; /* Internet Explorer */
+  -o-animation: fadein 3s; /* Opera < 12.1 */
+  animation: fadein 3s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
-</head>
-<body>
 
+  <div id='map'></div>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+  <script>
+  L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
+  var map = L.mapbox.map('map', 'mapbox.outdoors')
+      .setView([-41.2749311,174.7790948], 9);
 
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-
-<div id='map'></div>
-
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
-var map = L.mapbox.map('map', 'mapbox.streets')
-    .setView([38, -95], 4);
-
-// Omnivore will AJAX-request this file behind the scenes and parse it:
-// note that there are considerations:
-// - The CSV file must contain latitude and longitude values, in column
-//   named roughly latitude and longitude
-// - The file must either be on the same domain as the page that requests it,
-//   or both the server it is requested from and the user's browser must
-//   support CORS.
-omnivore.csv('/mapbox.js/assets/data/airports.csv').addTo(map);
-</script>
-
-
-</body>
-</html>
+      // L.marker is a low-level marker constructor in Leaflet.
+  omnivore.csv('/coords.csv').addTo(map);
+  </script>
 
 
   </div>
