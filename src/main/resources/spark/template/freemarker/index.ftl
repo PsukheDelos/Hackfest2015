@@ -61,7 +61,9 @@
   
   <!-- Map Section -->
     <section id="map" class="">
-          <div class="img-responsive" id='map'></div>
+          <div class="container"><div class="row">
+            <div id='map'></div>
+          </div></div>
           <script>
             L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
             var map = L.mapbox.map('map', 'mapbox.outdoors')
