@@ -63,7 +63,7 @@
     <section id="map-section" class="">
       <div class="container">
         <div class="row">
-          <div id="map" class="col-lg-12 text-center">
+          <div id="map">
               <img class="img-responsive" src="images/placeholder-map.jpg" alt="">
               <script>
                 L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
