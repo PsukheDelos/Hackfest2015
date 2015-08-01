@@ -68,9 +68,9 @@
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
                   
-                $.get('coords.csv', function(data) {
-                    var csvString = data;
-                  });
+                // $.get('coords.csv', function(data) {
+                //     var csvString = data;
+                //   });
 
 
 
