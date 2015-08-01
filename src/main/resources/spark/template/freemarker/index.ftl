@@ -101,17 +101,32 @@ omnivore.csv('coords.csv')
         // with values referring to states. Your data might have different
         // values, so adjust to fit.
         this.eachLayer(function(marker) {
-            if (marker.toGeoJSON().properties['JUNC TYPE'] === 'X') {
-                // The argument to L.mapbox.marker.icon is based on the
-                // simplestyle-spec: see that specification for a full
-                // description of options.
+
+            marker.setIcon(L.mapbox.marker.icon({
+                'marker-color': '#3366FF',
+                'marker-size': 'small'
+            }));
+            
+            if (parseInt(marker.toGeoJSON().properties['CRASH MIN CNT']) > 0) {
                 marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#ff8888',
+                    'marker-color': '#FFFF00',
+                    'marker-size': 'medium'
+                }));
+            } 
+            if (parseInt(marker.toGeoJSON().properties['CRASH SEV CNT']) > 0) {
+                marker.setIcon(L.mapbox.marker.icon({
+                    'marker-color': '#FF3300',
                     'marker-size': 'large'
                 }));
-            } else {
-                marker.setIcon(L.mapbox.marker.icon({}));
-            }
+            } 
+            if (parseInt(marker.toGeoJSON().properties['CRASH FATAL CNT']) > 0) {
+                marker.setIcon(L.mapbox.marker.icon({
+                    'marker-color': '#000000',
+                    'marker-size': 'large'
+                }));
+            } 
+
+
 
             //Converts movement codes to Movement text
             var mvmt = "Unknown";
