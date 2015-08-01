@@ -113,7 +113,7 @@ omnivore.csv('coords.csv')
                 marker.setIcon(L.mapbox.marker.icon({}));
             }
             // Bind a popup to each icon based on the same properties
-            marker.bindPopup(marker.toGeoJSON().properties.'CRASH ROAD' + ', ' +
+            marker.bindPopup(marker.toGeoJSON().properties.["CRASH ROAD"] + ', ' +
                 marker.toGeoJSON().properties.LIGHT);
         });
     })
