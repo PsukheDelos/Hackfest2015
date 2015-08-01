@@ -92,7 +92,7 @@
 
                   $.ajax({
                   dataType: "json",
-                  url: "data/2015.txt",
+                  url: "data/2015-test.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
                           var parts = feature.properties['CRASH DATE'].split("/");
@@ -103,11 +103,15 @@
                               console.log(dt);
                               console.log(dt.getMonth());
                               geoJson.addData(feature);
-                          }
-                          
+                          } 
                       });
                   }
                   }).error(function() {});
+                  console.log("timer start");
+                  sleep(6000);
+                  console.log("timer end");
+                  L.mapbox.featureLayer().clearLayers();
+                  console.log("there should be no markers");
 
                   // Omnivore will AJAX-request this file behind the scenes and parse it:
 // note that there are considerations:
