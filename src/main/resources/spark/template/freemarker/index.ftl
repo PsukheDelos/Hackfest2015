@@ -95,6 +95,7 @@
                   url: "data/geojson.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
+                        console.log("feature checked: " + feature);
                           if (new Date(feature.properties['CRASH DATE']).getMonth()===1){
                               console.log(feature);
                               console.log(new Date(feature.properties['CRASH DATE']).toString());
