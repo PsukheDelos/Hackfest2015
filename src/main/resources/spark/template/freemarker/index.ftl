@@ -72,13 +72,13 @@
                     var csvString = data;
                   });
 
-                  csv2geojson.csv2geojson(csvString, {
-                      latfield: 'latitude',
-                      lonfield: 'longitude',
-                      delimiter: ','
-                  }, function(err, data) 
-                      var gJson = data;
-                  });
+                  // csv2geojson.csv2geojson(csvString, {
+                  //     latfield: 'latitude',
+                  //     lonfield: 'longitude',
+                  //     delimiter: ','
+                  // }, function(err, data) 
+                  //     var gJson = data;
+                  // });
 
 
                   L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
