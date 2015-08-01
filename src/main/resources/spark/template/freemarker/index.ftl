@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <#include "header.ftl">
+  <!-- <#include "header.ftl"> -->
 </head>
 
 <body>
 
-  <#include "nav.ftl">
+  <!-- <#include "nav.ftl"> -->
 
 <div class="jumbotron text-center">
   <div class="container">
@@ -123,7 +123,7 @@
       // L.marker is a low-level marker constructor in Leaflet.
   omnivore.csv('/coords.csv').addTo(map);
   </script>
-      <!-- <img class="img-responsive" src="images/placeholder.jpg" alt=""> -->
+      <img class="img-responsive" src="images/placeholder.jpg" alt="">
     </div>
     </section>
 
