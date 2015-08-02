@@ -87,11 +87,11 @@
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
 
-var geoJson = L.geoJson(geoJsonData, {
+
+var geoJson = L.geoJson(geoJson, {
                       pointToLayer: L.mapbox.marker.style,
                       style: function(feature) { return feature.properties; }
                   }).addTo(map);
-                  // var geoJson = new L.geoJson();
                   // geoJson.addTo(map);
 
                   var count = 0;
