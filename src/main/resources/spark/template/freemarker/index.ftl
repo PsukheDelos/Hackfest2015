@@ -65,7 +65,7 @@
         <!-- <div class="row"> -->
           <!-- <div id="map"> -->
           <div id="map">
-              <div id="toy"></div>
+              <!-- <div id="toy"></div> -->
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
 
@@ -83,7 +83,7 @@
                   var time = 500;
                   $.ajax({
                   dataType: "json",
-                  url: "data/CrashData.txt",
+                  url: "data/CrashDataFormated.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
                           var parts = feature.properties['CRASH DATE'].split("/");
@@ -96,7 +96,7 @@
                               setTimeout(function(){
                                 console.log("setTimeout");
                                 geoJson.addData(feature);
-                                $("toy").update(dt.toString());
+                                // $("toy").update(dt.toString());
                               }, time);
                               time = time + 500;
                           }
