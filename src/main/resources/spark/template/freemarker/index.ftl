@@ -87,12 +87,10 @@
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
 
-
-                  var geoJson = L.geoJson(geoJsonData, {
+var geoJson = L.geoJson(geoJsonData, {
                       pointToLayer: L.mapbox.marker.style,
                       style: function(feature) { return feature.properties; }
                   }).addTo(map);
-
                   // var geoJson = new L.geoJson();
                   // geoJson.addTo(map);
 
@@ -110,7 +108,7 @@
                           if (dt.getMonth()===0){
                               console.log(count++);
                               console.log(feature);
-                              // setTimeout(function(){
+                              setTimeout(function(){
                                 console.log("setTimeout");
                                 geoJson.addData(feature);
                               }, time);
@@ -122,10 +120,7 @@
                   }).error(function() {});
 
 
-//                   var geoJson = L.geoJson(geoJsonData, {
-//     pointToLayer: L.mapbox.marker.style,
-//     style: function(feature) { return feature.properties; }
-// }).addTo(map);
+    
                   // console.log("timer start");
                   //sleep(6000);
                   // console.log("timer end");
