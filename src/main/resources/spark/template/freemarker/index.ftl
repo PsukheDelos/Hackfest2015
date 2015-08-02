@@ -101,12 +101,14 @@
                           var dt = new Date(parseInt(parts[2], 10),
                                             parseInt(parts[1], 10) - 1,
                                             parseInt(parts[0], 10)); 
-
-
                           if (dt.getMonth()===0){
                               console.log(count++);
                               console.log(feature);
-                              geoJson.addData(feature);
+                              console.log("timer start");
+                              setTimeout(function(){
+                                geoJson.addData(feature);
+                              }, 2000);
+                              
                           }
                       });
                   }
