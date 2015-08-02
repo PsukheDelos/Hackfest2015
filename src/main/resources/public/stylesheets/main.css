@@ -4,19 +4,29 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
- 
+
 body {
     overflow-x: hidden;
     background: #ffffff;
+    font-family: 'Open Sans', sans-serif;
 }
 
 p {
     font-size: 20px;
     color: #222222;
+    font-weight: 500;
 }
 
 p.small {
     font-size: 16px;
+}
+
+p.shift-left {
+
+}
+
+.pad-bottom {
+    padding-bottom: 20px;
 }
 
 a,
@@ -25,6 +35,10 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
+    color: #222222;
+}
+
+a {
     color: #ffffff;
 }
 
@@ -35,9 +49,40 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #222222;
+}
+
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+}
+
+.start-button {
+    position:absolute;
+    bottom: 52.5%;
+    right: 40%;
+    width: 20%;
+    height: 25%;
+}
+
+.key-row-pad {
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+img.icon-image {
+    width: 30%;
+    height: 30%;
+}
+
+img.title-overlay {
+    position: relative;
+}
+
+img.title-underlay {
+    position: absolute;
 }
 
 .img-centered {
@@ -63,7 +108,6 @@ header img {
 header .intro-text .name {
     display: block;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 4em;
     font-weight: 700;
 }
@@ -86,6 +130,11 @@ header .intro-text .subtext {
     header .intro-text .skills {
         font-size: 1.75em;
     }
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #ffffff;
+    background-color: transparent;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -124,7 +173,6 @@ header .intro-text .subtext {
 
 .navbar {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
 
@@ -140,6 +188,11 @@ header .intro-text .subtext {
 .navbar .navbar-nav li a:focus {
     outline: 0;
     color: #ffffff;
+}
+
+.navbafont-familyr-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #FFFFFF;
+    background-color: transparent;
 }
 
 .navbar-default,
@@ -164,7 +217,7 @@ section h2 {
 section.about {
     text-align: center;
     color: #ffffff;
-    background: #bfd3dc;
+    background: #bfe7fb;
 }
 
 section.team {
@@ -193,9 +246,9 @@ section.team {
 
 .btn-outline {
     margin-top: 15px;
-    border: solid 2px #ffffff;
+    border: solid 2px #fff;
     font-size: 20px;
-    color: #ffffff;
+    color: #fff;
     background: 0 0;
     transition: all .3s ease-in-out;
 }
@@ -204,9 +257,9 @@ section.team {
 .btn-outline:focus,
 .btn-outline:active,
 .btn-outline.active {
-    border: solid 2px #ffffff;
-    color: #ffffff;
-    background: #ffffff;
+    border: solid 2px #fff;
+    color: #18bc9c;
+    background: #fff;
 }
 
 .floating-label-form-group {

@@ -5,13 +5,13 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Crash Data</title>
+<title>Crash Watch</title>
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
-
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:500,700' rel='stylesheet' type='text/css'>
 <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 <script src="https://jquery-csv.googlecode.com/files/jquery.csv-0.71.min.js"></script>
