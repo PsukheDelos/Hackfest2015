@@ -62,7 +62,7 @@
   <!-- Map Section -->
     <section id="map-section" class=""
           <div id="map">
-              <div id="field_name" z-index="1000";>Date</div>
+              <div id="field_name" z-index="1000">Date</div>
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
 
