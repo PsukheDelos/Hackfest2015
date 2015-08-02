@@ -22,10 +22,9 @@ wellingtonData = []
 print "Loaded"
 print len(rows)
 for row in rows:
-    if 'Wellington City' in row:
-        row.insert(0,rowID)
-        rowID = rowID +1
-        wellingtonData.append(row)
+    row.insert(0,rowID)
+    rowID = rowID +1
+    wellingtonData.append(row)
         
 
 geoObjects = []
