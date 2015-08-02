@@ -87,8 +87,14 @@
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
 
-                  var geoJson = new L.geoJson();
-                  geoJson.addTo(map);
+
+                  var geoJson = L.geoJson(geoJsonData, {
+                      pointToLayer: L.mapbox.marker.style,
+                      style: function(feature) { return feature.properties; }
+                  }).addTo(map);
+
+                  // var geoJson = new L.geoJson();
+                  // geoJson.addTo(map);
 
                   var count = 0;
                   var time = 500;
@@ -104,7 +110,7 @@
                           if (dt.getMonth()===0){
                               console.log(count++);
                               console.log(feature);
-                              setTimeout(function(){
+                              // setTimeout(function(){
                                 console.log("setTimeout");
                                 geoJson.addData(feature);
                               }, time);
