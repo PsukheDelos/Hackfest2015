@@ -75,32 +75,45 @@
                   L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
+                  var myLayer = L.mapbox.featureLayer().addTo(map);
 
-                  var fieldNameElement = document.getElementById('field_name');
-                  var geoJson = L.geoJson(geoJson, {
-                      pointToLayer: L.mapbox.marker.style,
-                      style: function(feature) { return feature.properties; }
-                  }).addTo(map);
+                  // var fieldNameElement = document.getElementById('field_name');
+                  // var geoJson = L.geoJson(geoJson, {
+                  //     pointToLayer: L.mapbox.marker.style,
+                  //     style: function(feature) { return feature.properties; }
+                  // }).addTo(map);
 
-                  var count = 0;
-                  var time = 500;
+                  // var count = 0;
+                  // var time = 500;
                   $.ajax({
                   dataType: "json",
-                  url: "data/coords-small.csv",
+                  url: "data/geojson-small-icon.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
-                          var parts = feature.properties['CRASH DATE'].split("/");
-                          var dt = new Date(parseInt(parts[2], 10),
-                                            parseInt(parts[1], 10) - 1,
-                                            parseInt(parts[0], 10)); 
-                              setTimeout(function(){
-                                geoJson.addData(feature);
-                                fieldNameElement.innerHTML = dt.toString();
-                              }, time);
-                              time = time + 500;
+                          geoJson.addData(feature);
+                          console.log(feature);
+                          // var parts = feature.properties['CRASH DATE'].split("/");
+                          // var dt = new Date(parseInt(parts[2], 10),
+                          //                   parseInt(parts[1], 10) - 1,
+                          //                   parseInt(parts[0], 10)); 
+                          //     setTimeout(function(){
+                          //       geoJson.addData(feature);
+                          //       fieldNameElement.innerHTML = dt.toString();
+                          //     }, time);
+                          //     time = time + 500;
                       });
                   }
                   }).error(function() {});
+
+                  myLayer.on('layeradd', function(e) {
+                    var marker = e.layer,
+                    feature = marker.feature;
+                    marker.setIcon(L.icon(feature.properties.icon));
+                  });
+
+                  myLayer.setGeoJSON(geoJson);
+
+
                 </script>
           </div>
 
