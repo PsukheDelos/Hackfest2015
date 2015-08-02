@@ -357,8 +357,8 @@ form .row:first-child .floating-label-form-group {
 
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
-   -webkit-animation: fadeInOut 40s;
-   animation: fadeInOut 40s;
+   -webkit-animation: fadeInOut 3s0s;
+   animation: fadeInOut 30s;
    opacity: 0;
 }
 
@@ -414,10 +414,8 @@ form .row:first-child .floating-label-form-group {
        opacity: 0;
     }
 }
-/*#map { width: 100%; position:relative;}*/
-/*#map { height: 100%; width:100%; overflow: hidden;}*/
 
-.jumbotron {
+/*.jumbotron {
   background: #532F8C;
   color: white;
   padding-bottom: 80px; }
@@ -442,4 +440,4 @@ form .row:first-child .floating-label-form-group {
     margin: auto;
     border: 2px solid white; }
     .jumbotron .lang-logo img {
-      max-width: 100%; }
+      max-width: 100%; }*/
