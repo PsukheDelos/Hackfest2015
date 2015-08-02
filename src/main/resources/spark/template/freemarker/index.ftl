@@ -88,17 +88,16 @@
                   map.scrollWheelZoom.disable();
 
 
-var geoJson = L.geoJson(geoJson, {
+                  var geoJson = L.geoJson(geoJson, {
                       pointToLayer: L.mapbox.marker.style,
                       style: function(feature) { return feature.properties; }
                   }).addTo(map);
-                  // geoJson.addTo(map);
 
                   var count = 0;
                   var time = 500;
                   $.ajax({
                   dataType: "json",
-                  url: "data/2015.txt",
+                  url: "data/crashdata.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
                           var parts = feature.properties['CRASH DATE'].split("/");
@@ -113,7 +112,6 @@ var geoJson = L.geoJson(geoJson, {
                                 geoJson.addData(feature);
                               }, time);
                               time = time + 500;
-            
                           }
                       });
                   }
