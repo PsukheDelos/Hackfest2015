@@ -104,10 +104,11 @@
                           if (dt.getMonth()===0){
                               console.log(count++);
                               console.log(feature);
-                              console.log("timer start");
                               setTimeout(function(){
+                                console.log("setTimeout");
                                 geoJson.addData(feature);
-                              }, 2000);
+
+                              }, 10000);
                               
                           }
                       });
