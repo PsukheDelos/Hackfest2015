@@ -65,6 +65,7 @@
         <!-- <div class="row"> -->
           <!-- <div id="map"> -->
           <div id="map">
+
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
 
@@ -103,6 +104,7 @@
                   }).error(function() {});
 
                 </script>
+                HELLO WORLD
           </div>
 
 
