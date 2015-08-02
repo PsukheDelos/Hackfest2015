@@ -82,7 +82,7 @@
                   //     pointToLayer: L.mapbox.marker.style,
                   //     style: function(feature) { return feature.properties; }
                   // }).addTo(map);
-
+                  var geoJson = L.geoJson;
                   // var count = 0;
                   // var time = 500;
                   $.ajax({
