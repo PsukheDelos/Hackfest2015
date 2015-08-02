@@ -11,7 +11,7 @@
 <body id="page-top" class="index">
   
   <!-- Navigation Bar -->
-    <nav class="navbar navbar-default navbar-fixed-top navbar-color">
+    <nav class="navbar navbar-fixed-top navbar-color">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">

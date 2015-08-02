@@ -415,7 +415,7 @@ form .row:first-child .floating-label-form-group {
     }
 }
 
-/*.jumbotron {
+.jumbotron {
   background: #532F8C;
   color: white;
   padding-bottom: 80px; }
@@ -440,4 +440,4 @@ form .row:first-child .floating-label-form-group {
     margin: auto;
     border: 2px solid white; }
     .jumbotron .lang-logo img {
-      max-width: 100%; }*/
+      max-width: 100%; }
