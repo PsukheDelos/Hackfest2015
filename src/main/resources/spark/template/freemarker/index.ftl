@@ -4,6 +4,10 @@
     <#include "header.ftl">
 </head>
 
+  <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
 <body id="page-top" class="index">
   
   <!-- Navigation Bar -->
@@ -89,10 +93,7 @@
                           var dt = new Date(parseInt(parts[2], 10),
                                             parseInt(parts[1], 10) - 1,
                                             parseInt(parts[0], 10)); 
-                              console.log(count++);
-                              console.log(feature);
                               setTimeout(function(){
-                                console.log("setTimeout");
                                 geoJson.addData(feature);
                                 fieldNameElement.innerHTML = dt.toString();
                               }, time);
