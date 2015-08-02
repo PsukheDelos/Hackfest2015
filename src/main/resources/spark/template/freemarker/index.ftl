@@ -88,7 +88,7 @@
                   map.scrollWheelZoom.disable();
 
                   var geoJson = new L.geoJson();
-                  // geoJson.addTo(map);
+                  geoJson.addTo(map);
 
                   var count = 0;
                   var time = 500;
@@ -101,20 +101,20 @@
                           var dt = new Date(parseInt(parts[2], 10),
                                             parseInt(parts[1], 10) - 1,
                                             parseInt(parts[0], 10)); 
-                          // if (dt.getMonth()===0){
+                          if (dt.getMonth()===0){
                               console.log(count++);
-                              // console.log(feature);
+                              console.log(feature);
                               setTimeout(function(){
                                 console.log("setTimeout");
                                 geoJson.addData(feature);
                               }, time);
                               time = time + 500;
-                          // }
+                          }
                       });
                   }
                   }).error(function() {});
-
                   
+
 
                   // console.log("timer start");
                   //sleep(6000);
