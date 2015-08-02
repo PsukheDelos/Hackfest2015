@@ -92,7 +92,7 @@
 
                   $.ajax({
                   dataType: "json",
-                  url: "data/2015-test.txt",
+                  url: "data/2015.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
                           var parts = feature.properties['CRASH DATE'].split("/");
