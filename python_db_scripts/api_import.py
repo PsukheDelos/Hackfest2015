@@ -26,11 +26,7 @@ for row in rows:
         row.insert(0,rowID)
         rowID = rowID +1
         wellingtonData.append(row)
-
-##
-##{ "type":"FeatureCollection","features":
-##                    [
-
+        
 
 geoObjects = []
 for row in wellingtonData:
@@ -39,7 +35,7 @@ for row in wellingtonData:
     properties = {}
     for i in xrange(0,length-2):
         properties[headers[i]] = row[i]
-    geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": str(coords)},'properties':properties}
+    geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": coords},'properties':properties}
     geoObjects.append(geojson_obj)
 
 geoFileInput = {"type":"FeatureCollection", "features":geoObjects}
