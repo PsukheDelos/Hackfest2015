@@ -88,7 +88,7 @@
                   map.scrollWheelZoom.disable();
 
                   var geoJson = new L.geoJson();
-                  geoJson.addTo(map);
+                  // geoJson.addTo(map);
 
                   var count = 0;
                   var time = 500;
@@ -101,138 +101,20 @@
                           var dt = new Date(parseInt(parts[2], 10),
                                             parseInt(parts[1], 10) - 1,
                                             parseInt(parts[0], 10)); 
-                          if (dt.getMonth()===0){
+                          // if (dt.getMonth()===0){
                               console.log(count++);
-                              console.log(feature);
+                              // console.log(feature);
                               setTimeout(function(){
                                 console.log("setTimeout");
-                                geoJson.addData(feature){
-                                  this.eachLayer(function(marker) {
-
-            var injuries = "No Injuries";
-
-            marker.setIcon(L.mapbox.marker.icon({
-                'marker-color': '#3366FF',
-                'marker-size': 'small'
-            }));
-            
-            if (parseInt(feature.properties['CRASH MIN CNT']) > 0) {
-                marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#FFFF00',
-                    'marker-size': 'medium'
-                }));
-                injuries = 'Minor Injuries'
-            } 
-            if (parseInt(feature.properties['CRASH SEV CNT']) > 0) {
-                marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#FF3300',
-                    'marker-size': 'large'
-                }));
-                injuries = 'Serious Injuries'
-            } 
-            if (parseInt(feature.properties['CRASH FATAL CNT']) > 0) {
-                marker.setIcon(L.mapbox.marker.icon({
-                    'marker-color': '#000000',
-                    'marker-size': 'large'
-                }));
-                injuries = 'Fatal Injuries'
-            } 
-
-
-
-            //Converts movement codes to Movement text
-            var mvmt = "Unknown";
-            if (feature.properties['MVMT'].charAt(0) === 'A') {
-              mvmt = "Overtaking and Lane Change";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'B') {
-              mvmt = "Head On";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'C') {
-              mvmt = "Lost Control or Off Road (Straight Roads)";
-            }
-            else if (feature.properties['MVMT'].charAt(0) === 'D') {
-              mvmt = "Cornering";
-            }
-            else if (feature.properties['MVMT'].charAt(0) === 'E') {
-              mvmt = "Collision with Obstruction";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'F') {
-              mvmt = "Rear End";
-            }
-            else if (feature.properties['MVMT'].charAt(0) === 'G') {
-              mvmt = "Turning Versus Same Direction";
-            }
-            else if (feature.properties['MVMT'].charAt(0) === 'H') {
-              mvmt = "Crossing (No Turns)";
-            }  
-            else if (feature.properties['MVMT'].charAt(0) === 'J') {
-              mvmt = "Crossing (Vehicle Turning)";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'K') {
-              mvmt = "Merging";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'L') {
-              mvmt = "Right Against Turn";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'M') {
-              mvmt = "Manoeuvring";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'N') {
-              mvmt = "Pedestrians Crossing Road";
-            }
-            else if (feature.properties['MVMT'].charAt(0) === 'P') {
-              mvmt = "Pedestrians Other";
-            } 
-            else if (feature.properties['MVMT'].charAt(0) === 'Q') {
-              mvmt = "Miscellaneous";
-            }
-
-
-
-            //Converts light codes to Text 
-            var light = "Unknown";
-            if(feature.properties['LIGHT'].charAt(0)==='B'){
-              light = "Bright Sun";
-            }
-            else if(feature.properties['LIGHT'].charAt(0)==='O'){
-              light = "Overcast";
-            }
-            else if(feature.properties['LIGHT'].charAt(0)==='T'){
-              light = "Twilight";
-            }
-            else if(feature.properties['LIGHT'].charAt(0)==='D'){
-              light = "Dark";
-            }
-
-            if(feature.properties['LIGHT'].charAt(1)==='O'){
-              light = light + " / Street Lights On";
-            }
-            else if(feature.properties['LIGHT'].charAt(1)==='F'){
-              light = light + " / Street Lights Off";
-            }
-            else if(feature.properties['LIGHT'].charAt(1)==='N'){
-              light = light + " / No Street Lights Present";
-            }
-
-
-            // Bind a popup to each icon based on the same properties
-            marker.bindPopup(
-                '<b>' + mvmt + '</b><br>' + 
-                '<b>[' + injuries + ']</b><br>' + 
-                '<b>Road: </b>' + feature.properties['CRASH ROAD'].capitalize(true) + '<br>' +
-                '<b>Light: </b>' + light
-            );
-        });
-                                };
+                                geoJson.addData(feature);
                               }, time);
                               time = time + 500;
-                          }
+                          // }
                       });
                   }
                   }).error(function() {});
 
-
+                  
 
                   // console.log("timer start");
                   //sleep(6000);
