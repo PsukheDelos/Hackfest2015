@@ -9,7 +9,7 @@ import csv
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 rowID = 0
 
-year = 2014
+year = 2015
 geoObjects = []
 while True:
     if year == 2016:
@@ -41,6 +41,7 @@ while True:
         properties = {}
         for i in xrange(0,length-2):
             properties[headers[i]] = row[i]
+        properties['marker-color'] = '#ff69b4'
         geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": coords},'properties':properties}
         geoObjects.append(geojson_obj)
     print len(geoObjects)
@@ -48,7 +49,7 @@ while True:
 
     
 geoFileInput = {"type":"FeatureCollection", "features":geoObjects}
-geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', 'CrashData.txt')), 'w+')
+geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', '2015.txt')), 'w+')
 geoFile.write(json.dumps(geoFileInput))
 geoFile.close()
 
