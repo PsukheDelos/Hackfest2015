@@ -90,6 +90,8 @@
                   var geoJson = new L.geoJson();
                   geoJson.addTo(map);
 
+                  var count = 0;
+
                   $.ajax({
                   dataType: "json",
                   url: "data/2015.txt",
@@ -102,9 +104,10 @@
 
 
                           if (dt.getMonth()===0){
+                              console.log(count++);
                               console.log(feature);
                               geoJson.addData(feature);
-                          } 
+                          }
                       });
                   }
                   }).error(function() {});
