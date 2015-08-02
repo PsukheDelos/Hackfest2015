@@ -99,19 +99,20 @@
                           var dt = new Date(parseInt(parts[2], 10),
                                             parseInt(parts[1], 10) - 1,
                                             parseInt(parts[0], 10));                        
-                          if (dt.getMonth()===1){
-                              console.log(dt);
-                              console.log(dt.getMonth());
+                          if (dt.getMonth()===0){
                               geoJson.addData(feature);
                           } 
                       });
                   }
                   }).error(function() {});
-                  console.log("timer start");
+
+
+
+                  // console.log("timer start");
                   //sleep(6000);
-                  console.log("timer end");
+                  // console.log("timer end");
                   //L.mapbox.featureLayer().clearLayers();
-                  console.log("there should be no markers");
+                  // console.log("there should be no markers");
 
                   // Omnivore will AJAX-request this file behind the scenes and parse it:
 // note that there are considerations:
