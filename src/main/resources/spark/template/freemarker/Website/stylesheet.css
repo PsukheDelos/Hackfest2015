@@ -11,7 +11,6 @@ body {
 }
 
 p {
-    /*text-transform: uppercase;*/
     font-size: 20px;
     color: #222222;
     font-weight: 500;
@@ -19,6 +18,14 @@ p {
 
 p.small {
     font-size: 16px;
+}
+
+p.shift-left {
+
+}
+
+.pad-bottom {
+    padding-bottom: 20px;
 }
 
 a,
@@ -59,17 +66,14 @@ h6 {
     height: 25%;
 }
 
-.play-button {
-
-}
-
 .key-row-pad {
-    padding-bottom: 5px;
+    text-align: left;
+    padding-bottom: 20px;
 }
 
 img.icon-image {
-    width: 100%;
-    height: 100%;
+    width: 30%;
+    height: 30%;
 }
 
 img.title-overlay {
