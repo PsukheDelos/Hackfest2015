@@ -60,13 +60,9 @@
     </header>
   
   <!-- Map Section -->
-    <section id="map-section" class="">
-      <!-- <div class="container"> -->
-        <!-- <div class="row"> -->
-          <!-- <div id="map"> -->
+    <section id="map-section" class=""
+          <div id="field_name" z-index="1000";>Date</div>
           <div id="map">
-              <!-- <div id="toy"></div> -->
-              <div id="field_name">Date</div>
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
 
@@ -91,17 +87,14 @@
                           var dt = new Date(parseInt(parts[2], 10),
                                             parseInt(parts[1], 10) - 1,
                                             parseInt(parts[0], 10)); 
-                          // if (dt.getMonth()===0){
                               console.log(count++);
                               console.log(feature);
                               setTimeout(function(){
                                 console.log("setTimeout");
                                 geoJson.addData(feature);
                                 fieldNameElement.innerHTML = dt.toString();
-                                // $("toy").update(dt.toString());
                               }, time);
                               time = time + 500;
-                          // }
                       });
                   }
                   }).error(function() {});
