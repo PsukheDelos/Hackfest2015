@@ -65,7 +65,7 @@
         <!-- <div class="row"> -->
           <!-- <div id="map"> -->
           <div id="map">
-
+              <div id="toy"></div>
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
 
@@ -96,6 +96,7 @@
                               setTimeout(function(){
                                 console.log("setTimeout");
                                 geoJson.addData(feature);
+                                $("toy").update(dt.toString());
                               }, time);
                               time = time + 500;
                           }
@@ -104,7 +105,6 @@
                   }).error(function() {});
 
                 </script>
-                HELLO WORLD
           </div>
 
 
