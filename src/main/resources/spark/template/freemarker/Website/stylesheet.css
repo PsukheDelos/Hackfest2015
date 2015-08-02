@@ -4,19 +4,17 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-@font-face {
-  font-family: "OpenSans-Bold";
-  src: local(fonts/OpenSans-Bold.ttf) format("truetype");
-}
-
 body {
     overflow-x: hidden;
     background: #ffffff;
+    font-family: 'Open Sans', sans-serif;
 }
 
 p {
+    /*text-transform: uppercase;*/
     font-size: 20px;
     color: #222222;
+    font-weight: 500;
 }
 
 p.small {
@@ -43,9 +41,30 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: "OpenSans-Bold";
-    font-weight: 700px;
+    font-weight: 700;
     color: #222222;
+}
+
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+}
+
+.start-button {
+    position:absolute;
+    bottom: 52.5%;
+    right: 40%;
+    width: 20%;
+    height: 25%;
+}
+
+img.title-overlay {
+    position: relative;
+}
+
+img.title-underlay {
+    position: absolute;
 }
 
 .img-centered {
@@ -71,7 +90,6 @@ header img {
 header .intro-text .name {
     display: block;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 4em;
     font-weight: 700;
 }
@@ -132,7 +150,6 @@ header .intro-text .subtext {
 
 .navbar {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
 
@@ -150,7 +167,7 @@ header .intro-text .subtext {
     color: #ffffff;
 }
 
-.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+.navbafont-familyr-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
     color: #FFFFFF;
     background-color: transparent;
 }
@@ -177,7 +194,7 @@ section h2 {
 section.about {
     text-align: center;
     color: #ffffff;
-    background: #bfd3dc;
+    background: #bfe7fb;
 }
 
 section.team {
