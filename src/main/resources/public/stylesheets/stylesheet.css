@@ -357,8 +357,11 @@ form .row:first-child .floating-label-form-group {
 
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
-   -webkit-animation: fadeInOut 3s0s;
-   animation: fadeInOut 30s;
+   -webkit-animation: fadeInOut 30s; 
+   -moz-animation: fadeInOut 30s; 
+    -ms-animation: fadeInOut 30s; 
+     -o-animation: fadeInOut 30s; 
+        animation: fadeInOut 30s;
    opacity: 0;
 }
 
