@@ -87,12 +87,9 @@
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
 
-                  var geoJsonData = new L.geoJson();
-                  L.geoJson(geoJsonData, {
-                      pointToLayer: L.mapbox.marker.style,
-                      style: function(feature) { return feature.properties; }
-                  }).addTo(map);
-                
+                  var geoJson = new L.geoJson();
+                  geoJson.addTo(map);
+
                   var count = 0;
                   var time = 500;
                   $.ajax({
@@ -109,7 +106,7 @@
                               console.log(feature);
                               setTimeout(function(){
                                 console.log("setTimeout");
-                                geoJsonData.addData(feature);
+                                geoJson.addData(feature);
                               }, time);
                               time = time + 500;
             
@@ -119,11 +116,10 @@
                   }).error(function() {});
 
 
-                  // var geoJson2 = L.geoJson(geoJson, {
-                  //     pointToLayer: L.mapbox.marker.style,
-                  //     style: function(feature) { return feature.properties; }
-                  // }).addTo(map);
-
+//                   var geoJson = L.geoJson(geoJsonData, {
+//     pointToLayer: L.mapbox.marker.style,
+//     style: function(feature) { return feature.properties; }
+// }).addTo(map);
                   // console.log("timer start");
                   //sleep(6000);
                   // console.log("timer end");
