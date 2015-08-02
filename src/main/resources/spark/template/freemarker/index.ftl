@@ -71,18 +71,12 @@
                   L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
-                  var myLayer = L.mapbox.featureLayer().addTo(map);
+                  
                   var fieldNameElement = document.getElementById('field_name');
                   var geoJson = L.geoJson(geoJson, {
                       pointToLayer: L.mapbox.marker.style,
                       style: function(feature) { return feature.properties; }
                   }).addTo(map);
-                  myLayer.on('layeradd', function(e) {
-                        var marker = e.layer,
-                            feature = marker.feature;
-                        marker.setIcon(L.icon(feature.properties.icon));
-                    });
-                  myLayer.setGeoJSON(geoJson);
 
                   var count = 0;
                   var time = 500;
