@@ -48,7 +48,7 @@ while True:
 
     
 geoFileInput = {"type":"FeatureCollection", "features":geoObjects}
-geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', 'CrashData.geojson')), 'w+')
+geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', 'CrashData.txt')), 'w+')
 geoFile.write(json.dumps(geoFileInput))
 geoFile.close()
 
