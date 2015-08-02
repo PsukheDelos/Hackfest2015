@@ -91,7 +91,7 @@
                   geoJson.addTo(map);
 
                   var count = 0;
-                  var time = 3000;
+                  var time = 500;
                   $.ajax({
                   dataType: "json",
                   url: "data/2015.txt",
@@ -109,7 +109,7 @@
                                 geoJson.addData(feature);
 
                               }, time);
-                              time = time + 3000;
+                              time = time + 500;
                               
                           }
                       });
