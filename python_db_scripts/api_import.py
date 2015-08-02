@@ -6,7 +6,7 @@ import sys
 import csv
 
 def logicConversion(properties): #Method for checking fields in the json data and changing those fields and other fields based on what they contain
-    icon = {'iconUrl':'temp', 'iconSize': [10,10], 'iconAnchor':[25,25]}#Default icon settings
+    icon = {'iconUrl':'temp', 'iconSize': [10,10], 'iconAnchor':[25,25], 'className':'dot'}#Default icon settings
     if int(properties['CRASH SEV CNT']) > 0: #If crash has severe injuries
         properties['marker-color'] = '#FF3300' #Change the marker color
         properties['marker-size'] = 'large' #Change the marker size
@@ -129,23 +129,23 @@ while True: #Just keep looping until we hit 2016
             
 
     
-    for row in idedData:
-        length = len(row)
-        coords = [float(row[length-1]),float(row[length-2])]
-        properties = {}
-        for i in xrange(0,length-2):
-            properties[headers[i]] = row[i]
-        properties = logicConversion(properties)
-        geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": coords},'properties':properties}
-        geoObjects.append(geojson_obj)
-    print len(geoObjects)
-    year += 1
+    for row in idedData: #For each ided row
+        length = len(row) #Grab the length
+        coords = [float(row[length-1]),float(row[length-2])] #Grab the latlong coords
+        properties = {} #Setup a properties dict
+        for i in xrange(0,length-2): #For each element other than the coords
+            properties[headers[i]] = row[i] #Put it in the dict
+        properties = logicConversion(properties) #Run the logic conversion on the properties
+        geojson_obj = {"type":"Feature","geometry":{"type":"Point","coordinates": coords},'properties':properties} #Setup the geojson object
+        geoObjects.append(geojson_obj) #Store it
+    print len(geoObjects) #Print the length of the geoObjects array after we are done
+    year += 1 #increment the year
 
     
-geoFileInput = {"type":"FeatureCollection", "features":geoObjects}
-geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', 'CrashDataFormated.txt')), 'w+')
-geoFile.write(json.dumps(geoFileInput))
-geoFile.close()
+geoFileInput = {"type":"FeatureCollection", "features":geoObjects} #Setup the final json file
+geoFile = open(os.path.abspath(os.path.join(os.path.dirname(__file__),'..','src','main','resources','public','data', 'CrashDataFormated.txt')), 'w+') #Open the file we are outputting to
+geoFile.write(json.dumps(geoFileInput)) #Dump the JSON data to file
+geoFile.close() #Be tidy and close the file :)
 
 
 
