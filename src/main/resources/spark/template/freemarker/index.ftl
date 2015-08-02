@@ -97,7 +97,7 @@
                   var time = 500;
                   $.ajax({
                   dataType: "json",
-                  url: "data/crashdata.txt",
+                  url: "data/CrashData.txt",
                   success: function(data) {
                       $(data.features).each(function(key, feature) {
                           var parts = feature.properties['CRASH DATE'].split("/");
