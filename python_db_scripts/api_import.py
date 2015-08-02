@@ -35,7 +35,7 @@ for row in rows:
 geoObjects = []
 for row in wellingtonData:
     length = len(row)
-    coords = [row[length-2],row[length-1]]
+    coords = [float(row[length-1]),float(row[length-2])]
     properties = {}
     for i in xrange(0,length-2):
         properties[headers[i]] = row[i]
