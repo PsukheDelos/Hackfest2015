@@ -66,6 +66,7 @@
           <!-- <div id="map"> -->
           <div id="map">
               <!-- <div id="toy"></div> -->
+              <div id="field_name">Date</div>
               <img class="img-responsive" src="images/placeholder-map.png" alt="">
                 <script>
 
@@ -73,7 +74,7 @@
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
 
-
+                  var fieldNameElement = document.getElementById('field_name');
                   var geoJson = L.geoJson(geoJson, {
                       pointToLayer: L.mapbox.marker.style,
                       style: function(feature) { return feature.properties; }
@@ -96,6 +97,7 @@
                               setTimeout(function(){
                                 console.log("setTimeout");
                                 geoJson.addData(feature);
+                                fieldNameElement.innerHTML = dt.toString();
                                 // $("toy").update(dt.toString());
                               }, time);
                               time = time + 500;
