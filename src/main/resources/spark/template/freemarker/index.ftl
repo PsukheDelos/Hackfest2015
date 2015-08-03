@@ -82,63 +82,63 @@
                   //     pointToLayer: L.mapbox.marker.style,
                   //     style: function(feature) { return feature.properties; }
                   // }).addTo(map);
-                  var geoJson = new L.geoJson();
-                  // var count = 0;
-                  // var time = 500;
-                  $.ajax({
-                  dataType: "json",
-                  url: "data/geojson-icons.txt",
-                  success: function(data) {
-                      $(data.features).each(function(key, feature) {
-                          geoJson.addData(feature);
-                          console.log(feature);
-                          // var parts = feature.properties['CRASH DATE'].split("/");
-                          // var dt = new Date(parseInt(parts[2], 10),
-                          //                   parseInt(parts[1], 10) - 1,
-                          //                   parseInt(parts[0], 10)); 
-                          //     setTimeout(function(){
-                          //       geoJson.addData(feature);
-                          //       fieldNameElement.innerHTML = dt.toString();
-                          //     }, time);
-                          //     time = time + 500;
-                      });
-                  }
-                  }).error(function() {});
+                  // var geoJson = new L.geoJson();
+                  // // var count = 0;
+                  // // var time = 500;
+                  // $.ajax({
+                  // dataType: "json",
+                  // url: "data/geojson-icons.txt",
+                  // success: function(data) {
+                  //     $(data.features).each(function(key, feature) {
+                  //         geoJson.addData(feature);
+                  //         console.log(feature);
+                  //         // var parts = feature.properties['CRASH DATE'].split("/");
+                  //         // var dt = new Date(parseInt(parts[2], 10),
+                  //         //                   parseInt(parts[1], 10) - 1,
+                  //         //                   parseInt(parts[0], 10)); 
+                  //         //     setTimeout(function(){
+                  //         //       geoJson.addData(feature);
+                  //         //       fieldNameElement.innerHTML = dt.toString();
+                  //         //     }, time);
+                  //         //     time = time + 500;
+                  //     });
+                  // }
+                  // }).error(function() {});
 
                   //Hard coding geoJSON for a test
-                  // var geoJson = [{
-                  //     "type": "Feature",
-                  //     "geometry": {
-                  //         "type": "Point",
-                  //         "coordinates": [174.7826949,-41.29151999]
-                  //     },
-                  //     "properties": {
-                  //         "title": "Small astronaut",
-                  //         "icon": {
-                  //             "iconUrl": "/images/1.png",
-                  //             "iconSize": [50, 50], // size of the icon
-                  //             "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
-                  //             "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
-                  //             "className": "dot"
-                  //         }
-                  //     }
-                  // }, {
-                  //     "type": "Feature",
-                  //     "geometry": {
-                  //         "type": "Point",
-                  //         "coordinates": [174.7683061,-41.26505353]
-                  //     },
-                  //     "properties": {
-                  //         "title": "Big astronaut",
-                  //         "icon": {
-                  //             "iconUrl": "/images/1.png",
-                  //             "iconSize": [100, 100],
-                  //             "iconAnchor": [50, 50],
-                  //             "popupAnchor": [0, -55],
-                  //             "className": "dot"
-                  //         }
-                  //     }
-                  // }];
+                  var geoJson = [{
+                      "type": "Feature",
+                      "geometry": {
+                          "type": "Point",
+                          "coordinates": [174.7826949,-41.29151999]
+                      },
+                      "properties": {
+                          "title": "Small astronaut",
+                          "icon": {
+                              "iconUrl": "/images/1.png",
+                              "iconSize": [50, 50], // size of the icon
+                              "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
+                              "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
+                              "className": "dot"
+                          }
+                      }
+                  }, {
+                      "type": "Feature",
+                      "geometry": {
+                          "type": "Point",
+                          "coordinates": [174.7683061,-41.26505353]
+                      },
+                      "properties": {
+                          "title": "Big astronaut",
+                          "icon": {
+                              "iconUrl": "/images/1.png",
+                              "iconSize": [100, 100],
+                              "iconAnchor": [50, 50],
+                              "popupAnchor": [0, -55],
+                              "className": "dot"
+                          }
+                      }
+                  }];
 
                   myLayer.on('layeradd', function(e) {
                     var marker = e.layer,
