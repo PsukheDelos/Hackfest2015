@@ -116,10 +116,9 @@
                           "title": "Small astronaut",
                           "icon": {
                               "iconUrl": "/images/1.png",
-                              "iconSize": [50, 50], // size of the icon
-                              "iconAnchor": [25, 25], // point of the icon which will correspond to marker's location
-                              "popupAnchor": [0, -25], // point from which the popup should open relative to the iconAnchor
-                              "className": "dot"
+                              "iconSize": [50, 50], 
+                              "iconAnchor": [25, 25], 
+                              "popupAnchor": [0, -25]
                           }
                       }
                   }, {
@@ -134,8 +133,7 @@
                               "iconUrl": "/images/1.png",
                               "iconSize": [100, 100],
                               "iconAnchor": [50, 50],
-                              "popupAnchor": [0, -55],
-                              "className": "dot"
+                              "popupAnchor": [0, -55]
                           }
                       }
                   }];
