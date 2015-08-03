@@ -114,6 +114,8 @@
                       },
                       "properties": {
                           "title": "Small astronaut",
+                          "marker-size": "large",
+                          "marker-color": "#3366FF",
                           "icon": {
                               "iconUrl": "/images/1.png",
                               "iconSize": [50, 50], 
@@ -129,6 +131,8 @@
                       },
                       "properties": {
                           "title": "Big astronaut",
+                          "marker-size": "large",
+                          "marker-color": "#3366FF",
                           "icon": {
                               "iconUrl": "/images/1.png",
                               "iconSize": [100, 100],
