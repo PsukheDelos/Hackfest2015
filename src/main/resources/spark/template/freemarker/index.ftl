@@ -75,80 +75,80 @@
                   L.mapbox.accessToken = 'pk.eyJ1IjoicHN1a2hlZGVsb3MiLCJhIjoiZmYwMTc1NDNjZGM3NjE5ODdmYjc3NWM3MzFiNmZmNjUifQ.NFvyZqxbpAJKvTbPBVrZ6Q';
                   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([-41.2749311,174.7790948], 11);
                   map.scrollWheelZoom.disable();
-                  var myLayer = L.mapbox.featureLayer().addTo(map);
+                  // var myLayer = L.mapbox.featureLayer().addTo(map);
 
-                  // var fieldNameElement = document.getElementById('field_name');
-                  // var geoJson = L.geoJson(geoJson, {
-                  //     pointToLayer: L.mapbox.marker.style,
-                  //     style: function(feature) { return feature.properties; }
-                  // }).addTo(map);
-                  // var geoJson = new L.geoJson();
-                  // // var count = 0;
-                  // // var time = 500;
-                  // $.ajax({
-                  // dataType: "json",
-                  // url: "data/geojson-icons.txt",
-                  // success: function(data) {
-                  //     $(data.features).each(function(key, feature) {
-                  //         geoJson.addData(feature);
-                  //         console.log(feature);
-                  //         // var parts = feature.properties['CRASH DATE'].split("/");
-                  //         // var dt = new Date(parseInt(parts[2], 10),
-                  //         //                   parseInt(parts[1], 10) - 1,
-                  //         //                   parseInt(parts[0], 10)); 
-                  //         //     setTimeout(function(){
-                  //         //       geoJson.addData(feature);
-                  //         //       fieldNameElement.innerHTML = dt.toString();
-                  //         //     }, time);
-                  //         //     time = time + 500;
-                  //     });
-                  // }
-                  // }).error(function() {});
+                  var fieldNameElement = document.getElementById('field_name');
+                  var geoJson = L.geoJson(geoJson, {
+                      pointToLayer: L.mapbox.marker.style,
+                      style: function(feature) { return feature.properties; }
+                  }).addTo(map);
+                  var geoJson = new L.geoJson();
+                  var count = 0;
+                  var time = 500;
+                  $.ajax({
+                  dataType: "json",
+                  url: "data/CrashDataFormated.txt",
+                  success: function(data) {
+                      $(data.features).each(function(key, feature) {
+                          geoJson.addData(feature);
+                          console.log(feature);
+                          var parts = feature.properties['CRASH DATE'].split("/");
+                          var dt = new Date(parseInt(parts[2], 10),
+                                            parseInt(parts[1], 10) - 1,
+                                            parseInt(parts[0], 10)); 
+                              setTimeout(function(){
+                                geoJson.addData(feature);
+                                fieldNameElement.innerHTML = dt.toString();
+                              }, time);
+                              time = time + 500;
+                      });
+                  }
+                  }).error(function() {});
 
                   //Hard coding geoJSON for a test
-                  var geoJson = [{
-                      "type": "Feature",
-                      "geometry": {
-                          "type": "Point",
-                          "coordinates": [174.7826949,-41.29151999]
-                      },
-                      "properties": {
-                          "title": "Small astronaut",
-                          "marker-size": "large",
-                          "marker-color": "#3366FF",
-                          "icon": {
-                              "iconUrl": "/images/1.png",
-                              "iconSize": [50, 50], 
-                              "iconAnchor": [25, 25], 
-                              "popupAnchor": [0, -25]
-                          }
-                      }
-                  }, {
-                      "type": "Feature",
-                      "geometry": {
-                          "type": "Point",
-                          "coordinates": [174.7683061,-41.26505353]
-                      },
-                      "properties": {
-                          "title": "Big astronaut",
-                          "marker-size": "large",
-                          "marker-color": "#3366FF",
-                          "icon": {
-                              "iconUrl": "/images/1.png",
-                              "iconSize": [100, 100],
-                              "iconAnchor": [50, 50],
-                              "popupAnchor": [0, -55]
-                          }
-                      }
-                  }];
+                  // var geoJson = [{
+                  //     "type": "Feature",
+                  //     "geometry": {
+                  //         "type": "Point",
+                  //         "coordinates": [174.7826949,-41.29151999]
+                  //     },
+                  //     "properties": {
+                  //         "title": "Small astronaut",
+                  //         "marker-size": "large",
+                  //         "marker-color": "#3366FF",
+                  //         "icon": {
+                  //             "iconUrl": "/images/1.png",
+                  //             "iconSize": [50, 50], 
+                  //             "iconAnchor": [25, 25], 
+                  //             "popupAnchor": [0, -25]
+                  //         }
+                  //     }
+                  // }, {
+                  //     "type": "Feature",
+                  //     "geometry": {
+                  //         "type": "Point",
+                  //         "coordinates": [174.7683061,-41.26505353]
+                  //     },
+                  //     "properties": {
+                  //         "title": "Big astronaut",
+                  //         "marker-size": "large",
+                  //         "marker-color": "#3366FF",
+                  //         "icon": {
+                  //             "iconUrl": "/images/1.png",
+                  //             "iconSize": [100, 100],
+                  //             "iconAnchor": [50, 50],
+                  //             "popupAnchor": [0, -55]
+                  //         }
+                  //     }
+                  // }];
 
-                  myLayer.on('layeradd', function(e) {
-                    var marker = e.layer,
-                    feature = marker.feature;
-                    marker.setIcon(L.icon(feature.properties.icon));
-                  });
+                  // myLayer.on('layeradd', function(e) {
+                  //   var marker = e.layer,
+                  //   feature = marker.feature;
+                  //   marker.setIcon(L.icon(feature.properties.icon));
+                  // });
 
-                  myLayer.setGeoJSON(geoJson);
+                  // myLayer.setGeoJSON(geoJson);
 
 
                 </script>
